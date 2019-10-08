@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import "./Card.css";
 
-export default ({
+const Card = ({
   HeaderFontColor,
   HeaderFontSize,
   HeaderFontFamily,
@@ -24,10 +26,11 @@ export default ({
 }) => {
   return (
     <div>
-      <div className='card-grid-space'>
+      <div className="card-grid-space">
         <a
-          target='_blank'
-          className='card'
+          target="_blank"
+          rel="noopener noreferrer"
+          className="card"
           href={`${onClick}`}
           style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -57,7 +60,7 @@ export default ({
             </p>
             {showDate && (
               <div
-                className='date'
+                className="date"
                 style={{
                   color: dateFontColor,
                   fontSize: dateFontSize,
@@ -67,10 +70,10 @@ export default ({
                 {date}
               </div>
             )}
-            <div className='tags'>
+            <div className="tags">
               {showTags &&
                 tags.map((tag, index) => (
-                  <div className='tag' key={index}>
+                  <div className="tag" key={index}>
                     {tag}
                   </div>
                 ))}
@@ -81,3 +84,49 @@ export default ({
     </div>
   );
 };
+
+Card.defaultProps = {
+  HeaderFontColor: "red",
+  HeaderFontSize: "small",
+  HeaderFontFamily: "serif",
+  subHeaderFontColor: "black",
+  subHeaderFontSize: "small",
+  subHeaderFontFamily: "serif",
+  dateFontColor: "black",
+  dateFontSize: "small",
+  dateFontFamily: "serif",
+  tags: [],
+  showTags: false,
+  date: null,
+  showDate: false,
+  backgroundImage: "white",
+  borderColor: "black",
+  borderWidth: "1px",
+  borderRadius: "25px",
+  onClick: () => {}
+};
+
+Card.propTypes = {
+  HeaderFontColor: PropTypes.string,
+  HeaderFontSize: PropTypes.string,
+  HeaderFontFamily: PropTypes.string,
+  Header: PropTypes.element,
+  subHeaderFontColor: PropTypes.string,
+  subHeaderFontSize: PropTypes.string,
+  subHeaderFontFamily: PropTypes.string,
+  subHeader: PropTypes.element,
+  dateFontColor: PropTypes.string,
+  dateFontSize: PropTypes.string,
+  dateFontFamily: PropTypes.string,
+  tags: PropTypes.array,
+  showTags: PropTypes.bool,
+  date: PropTypes.instanceOf(Date),
+  showDate: PropTypes.bool,
+  backgroundImage: PropTypes.string,
+  borderColor: PropTypes.string,
+  borderWidth: PropTypes.string,
+  borderRadius: PropTypes.string,
+  onClick: PropTypes.func
+};
+
+export default Card;

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import "./index.css";
-import {
-  AlertWrapper,
-  Avatar,
-  Button,
-} from "../../src/index";
-
+import { AlertWrapper, Avatar, Button, Card, Header } from "../../src/index";
 
 class Demo extends Component {
   render() {
@@ -18,9 +13,9 @@ class Demo extends Component {
         </h2>
 
         <h3>Example components</h3>
-        
+
         <h4>Alert Wrapper</h4>
-        <AlertWrapper alertMsg="Example alert message"/>
+        <AlertWrapper alertMsg="Example alert message" />
 
         <h4>Avatar</h4>
         <Avatar />
@@ -28,7 +23,10 @@ class Demo extends Component {
         <h4>Button</h4>
         <Button />
 
-
+        <h4>Card</h4>
+        <Card>
+          <Header brandName="Header">Header</Header>
+        </Card>
       </div>
     );
   }
